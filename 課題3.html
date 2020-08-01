@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>dentaku</title>
+</head>
+<body>
+<style>
+    button
+    {
+        width: 60px;
+        height: 50px;
+        top: 10px;
+        left: 10px;
+        background-color: lightskyblue
+    }
+</style>
+
+<h1>電卓</h1>
+<input />
+<button onclick="Reflection( '' ) " >CLR</button><br />
+<button onclick="add( '/' ).value += '/' " >/</button>
+<button onclick="add( '*' ).value += '*' " >*</button>
+<button onclick="add( '-' ).value += '-' " >-</button>
+<button onclick="add( '+' ).value += '+' " >+</button><br />
+<button onclick="add( '7' ).value += '7' " >7</button>
+<button onclick="add( '8' ).value += '8' " >8</button>
+<button onclick="add( '9' ).value += '9' " >9</button><br />
+<button onclick="add( '4' ).value += '4' " >4</button>
+<button onclick="add( '5' ).value += '5' " >5</button>
+<button onclick="add( '6' ).value += '6' " >6</button><br />
+<button onclick="add( '1' ).value += '1' " >1</button>
+<button onclick="add( '2' ).value += '2' " >2</button>
+<button onclick="add( '3' ).value += '3' " >3</button><br />
+<button onclick="add( '0' ).value += '0' " >0</button>
+<button onclick="add( '.' ).value += '.' " >.</button>
+<button onclick="calc( '' ).value += '=' " >=</button>
+
+<script>
+    function Reflection( _j ) 
+        {
+            document.querySelector( 'input' ).value = _j
+        }
+    
+        function add( _j ) 
+        {
+            document.querySelector( 'input' ).value += _j
+        }
+    
+        function calculation() 
+        {
+            const j = document.querySelector( 'input' ).value
+            try {
+                const i = new Function( 'return ' + j )
+                Reflection( i().toString() )
+            } catch( _error ) {
+                Reflection( _error ) 
+            }
+        }
+</script>
+</body>
+</html>
